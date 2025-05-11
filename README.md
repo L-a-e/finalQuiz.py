@@ -1,3 +1,3 @@
-# finalQuiz.py
-Choose the best option that fits your personality.
-Try not to think about each answer very hard, the quiz is meant to be quick and fun!
+# project.py
+Use different colors and pen shapes to create a drawing of your choice. 
+This drawing application should give the user the freedom to create unique illustrations tailored to their tastes. 
