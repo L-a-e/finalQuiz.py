@@ -36,9 +36,17 @@ def draw(win, grid):
     pygame.display.update()
 
 
+def get_row_col_from_pos(pos):
+    x, y = pos
+    row = x // PIXEL_SIZE
+    col = y // PIXEL_SIZE
+
+    return row, col
+
 run = True
 clock = pygame.time.Clock()
 grid = init_grid(ROWS, COLS, BG_COLOR)
+drawing_color = BLACK
 
 while run:
     clock.tick(FPS)
@@ -46,6 +54,10 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+
+
+        if pygame.mouse.get_pressed()[0]:
+            pos = pygame.mouse.get_pos()
 
     draw(WIN, grid)
 
