@@ -1,9 +1,17 @@
 from utils import *
 
 
-
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Drawing Program")
+
+
+def init_grid(rows, cols, color):
+    grid = []
+
+    for i in range(rows):
+        grid.append([])
+        for _ in range(cols):
+            grid[i].append(color)
 
 
 def draw(win):
