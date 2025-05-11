@@ -13,14 +13,24 @@ def init_grid(rows, cols, color):
         for _ in range(cols):
             grid[i].append(color)
 
+    return grid
 
-def draw(win):
+
+def draw_grid(win, grid):
+    for i in enumerate(grid):
+        for j, pixel in enumerate(row):
+            pygame.draw.rect(win, pixel, (j * PIXEL_SIZE, i * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE))
+
+
+def draw(win, grid):
     win.fill(BG_COLOR)
     pygame.display.update()
 
 
 run = True
 clock = pygame.time.Clock()
+grid = init_grid(ROWS, COLS, BG_COLOR)
+
 while run:
     clock.tick(FPS)
 
