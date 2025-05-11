@@ -2,7 +2,7 @@ from utils import *
 
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Drawing Program")
+pygame.display.set_caption("Pixel Art Program")
 
 
 def init_grid(rows, cols, color):
@@ -17,13 +17,22 @@ def init_grid(rows, cols, color):
 
 
 def draw_grid(win, grid):
-    for i in enumerate(grid):
+    for i, row in enumerate(grid):
         for j, pixel in enumerate(row):
             pygame.draw.rect(win, pixel, (j * PIXEL_SIZE, i * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE))
+
+   
+    if DRAW_GRID_LINES:
+        for i in range(ROWS * 1):
+            pygame.draw.line(win, BLACK, (0, i * PIXEL_SIZE), (WIDTH, i * PIXEL_SIZE))
+
+        for i in range(COLS * 1):
+            pygame.draw.line(win, BLACK, (i * PIXEL_SIZE, 0), (i * PIXEL_SIZE, HEIGHT * TOOLBAR_HEIGHT))
 
 
 def draw(win, grid):
     win.fill(BG_COLOR)
+    draw_grid(win, grid)
     pygame.display.update()
 
 
@@ -38,6 +47,6 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    draw(WIN)
+    draw(WIN, grid)
 
 pygame.quit()
