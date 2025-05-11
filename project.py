@@ -41,6 +41,9 @@ def get_row_col_from_pos(pos):
     row = x // PIXEL_SIZE
     col = y // PIXEL_SIZE
 
+    if row >= ROWS:
+        raise IndexError
+
     return row, col
 
 run = True
@@ -58,6 +61,11 @@ while run:
 
         if pygame.mouse.get_pressed()[0]:
             pos = pygame.mouse.get_pos()
+
+            try:
+                row, col = get_row_col_from_pos()
+            except IndexError:
+                pass
 
     draw(WIN, grid)
 
