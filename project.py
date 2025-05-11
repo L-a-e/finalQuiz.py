@@ -38,8 +38,8 @@ def draw(win, grid):
 
 def get_row_col_from_pos(pos):
     x, y = pos
-    row = x // PIXEL_SIZE
-    col = y // PIXEL_SIZE
+    row = y // PIXEL_SIZE
+    col = x // PIXEL_SIZE
 
     if row >= ROWS:
         raise IndexError
@@ -63,7 +63,8 @@ while run:
             pos = pygame.mouse.get_pos()
 
             try:
-                row, col = get_row_col_from_pos()
+                row, col = get_row_col_from_pos(pos)
+                grid[row][col] = drawing_color
             except IndexError:
                 pass
 
