@@ -11,7 +11,10 @@ class Button:
         self.text_color = text_color
 
     def draw(self, win):
-        pass
+        pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.height))
+
+        if self.text:
+            pygame.draw.rect(win, BLACK, (self.x, self.y, self.width, self.height), 2)
 
 
     def clicked(self, pos):
