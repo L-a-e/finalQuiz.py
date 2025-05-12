@@ -64,8 +64,9 @@ buttons = [
     Button(130, button_y, 50, 50, GREEN),
     Button(190, button_y, 50, 50, BLUE),
     Button(250, button_y, 50, 50, BROWN),
-    Button(310, button_y, 50, 50, WHITE, "Erase", BLACK),
-    Button(380, button_y, 50, 50, WHITE, "Clear", BLACK)
+    Button(310, button_y, 50, 50, LAVENDER),
+    Button(380, button_y, 50, 50, WHITE, "Erase", BLACK),
+    Button(450, button_y, 50, 50, WHITE, "Clear", BLACK)
 ]
 
 while run:
