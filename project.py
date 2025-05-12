@@ -60,11 +60,10 @@ buttons = [
     Button(10, button_y, 50, 50, BLACK),
     Button(70, button_y, 50, 50, RED),
     Button(130, button_y, 50, 50, GREEN),
-    Button(290, button_y, 50, 50, BLUE),
+    Button(190, button_y, 50, 50, BLUE),
     Button(250, button_y, 50, 50, WHITE, "Erase", BLACK),
     Button(310, button_y, 50, 50, WHITE, "Clear", BLACK)
 ]
-
 while run:
     clock.tick(FPS)
 
@@ -80,7 +79,9 @@ while run:
                 row, col = get_row_col_from_pos(pos)
                 grid[row][col] = drawing_color
             except IndexError:
-                pass
+                for button in buttons:
+                    if not button.clicked(pos):
+                        continue
 
     draw(WIN, grid, buttons)
 
