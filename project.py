@@ -83,6 +83,9 @@ while run:
                     if not button.clicked(pos):
                         continue
 
+                    drawing_color = button.color
+                    
+
     draw(WIN, grid, buttons)
 
 pygame.quit()
