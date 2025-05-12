@@ -9,3 +9,10 @@ class Button:
         self.color = color
         self.text = text
         self.text_color = text_color
+
+    def draw(self, win):
+        pass
+
+
+    def clicked(self, pos):
+        pass
