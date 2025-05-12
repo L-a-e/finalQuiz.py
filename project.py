@@ -1,6 +1,5 @@
 from utils import *
 
-
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pixel Art Program")
 
@@ -19,15 +18,17 @@ def init_grid(rows, cols, color):
 def draw_grid(win, grid):
     for i, row in enumerate(grid):
         for j, pixel in enumerate(row):
-            pygame.draw.rect(win, pixel, (j * PIXEL_SIZE, i * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE))
+            pygame.draw.rect(win, pixel, (j * PIXEL_SIZE, i *
+                                          PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE))
 
-   
     if DRAW_GRID_LINES:
-        for i in range(ROWS * 1):
-            pygame.draw.line(win, BLACK, (0, i * PIXEL_SIZE), (WIDTH, i * PIXEL_SIZE))
+        for i in range(ROWS + 1):
+            pygame.draw.line(win, BLACK, (0, i * PIXEL_SIZE),
+                             (WIDTH, i * PIXEL_SIZE))
 
-        for i in range(COLS * 1):
-            pygame.draw.line(win, BLACK, (i * PIXEL_SIZE, 0), (i * PIXEL_SIZE, HEIGHT * TOOLBAR_HEIGHT))
+        for i in range(COLS + 1):
+            pygame.draw.line(win, BLACK, (i * PIXEL_SIZE, 0),
+                             (i * PIXEL_SIZE, HEIGHT - TOOLBAR_HEIGHT))
 
 
 def draw(win, grid, buttons):
@@ -50,6 +51,7 @@ def get_row_col_from_pos(pos):
 
     return row, col
 
+
 run = True
 clock = pygame.time.Clock()
 grid = init_grid(ROWS, COLS, BG_COLOR)
@@ -61,16 +63,17 @@ buttons = [
     Button(70, button_y, 50, 50, RED),
     Button(130, button_y, 50, 50, GREEN),
     Button(190, button_y, 50, 50, BLUE),
-    Button(250, button_y, 50, 50, WHITE, "Erase", BLACK),
-    Button(310, button_y, 50, 50, WHITE, "Clear", BLACK)
+    Button(250, button_y, 50, 50, BROWN),
+    Button(310, button_y, 50, 50, WHITE, "Erase", BLACK),
+    Button(380, button_y, 50, 50, WHITE, "Clear", BLACK)
 ]
+
 while run:
     clock.tick(FPS)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
 
         if pygame.mouse.get_pressed()[0]:
             pos = pygame.mouse.get_pos()
@@ -82,13 +85,11 @@ while run:
                 for button in buttons:
                     if not button.clicked(pos):
                         continue
-                    
+
                     drawing_color = button.color
                     if button.text == "Clear":
                         grid = init_grid(ROWS, COLS, BG_COLOR)
                         drawing_color = BLACK
-
-                    
 
     draw(WIN, grid, buttons)
 
