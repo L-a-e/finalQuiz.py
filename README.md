@@ -41,7 +41,7 @@ Creating new buttons was a little tricky until I got the hang of adding the righ
 The outcome of the project turned out well. I was able to add colors to the program and get the buttons and grid to draw correctly. 
 Howevor, I wish that I was able to add eight colors instead of six total. 
 
-I am satisfied with the clock speed of teh program, running at 60 is a good rate for drawing. 
+I am satisfied with the clock speed of the program, running at 60 is a good rate for drawing. 
 
 A future area this project could iprove on is the ability to change the size of the canvas on a whim, 
 that way teh user may create pixel art in smaller or larger canvases. I would also liek to add more colors in the future, 
